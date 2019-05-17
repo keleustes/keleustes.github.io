@@ -1,0 +1,36 @@
+[
+{
+	"uri": "/",
+	"title": "Keleustes",
+	"tags": [],
+	"description": "Main page",
+	"content": " Keleustes "
+},
+{
+	"uri": "/post/",
+	"title": "Latest News",
+	"tags": [],
+	"description": "",
+	"content": " Posts Convertion to new HUGO is still WIP\n"
+},
+{
+	"uri": "/about/",
+	"title": "About KUBEDGE",
+	"tags": [],
+	"description": "",
+	"content": " About WIP\n"
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
