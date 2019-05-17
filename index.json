@@ -18,28 +18,28 @@
 	"title": "Kustomize",
 	"tags": [],
 	"description": "This is the kustomize blueprint page",
-	"content": "Kustomize \n"
+	"content": "Kustomize Rationale Investigate the feasability of converting deckhand functions to kustomize\nDocumentation  ReadTheDocs Readme  Associated GIT Repos  kustomize airship-deckhand  \n"
 },
 {
 	"uri": "/armada-operator/",
 	"title": "Armada",
 	"tags": [],
 	"description": "This is armada-operator blueprint page",
-	"content": "Armada \n"
+	"content": "Armada Rationale Investigate the feasability of converting airship-armada functions into a Kubernetes operator pattern\nDocumentation  ReadTheDocs Readme  Associated GIT Repos  armada-operator airship-armada  \n"
 },
 {
 	"uri": "/airship-treasuremap/",
 	"title": "TreasureMap",
 	"tags": [],
 	"description": "This is airship-treasuremap blueprint page",
-	"content": "Armada \n"
+	"content": "TreasureMap Rationale Investigate the feasability of converting airship-treasuremap site descriptions into kustomize site descriptions (Kubernetes CRD based)\nDocumentation  ReadTheDocs Readme  Associated GIT Repos  airship-treasuremap airship-treasuremap  \n"
 },
 {
 	"uri": "/oslc-operator/",
 	"title": "OpenstackLCM",
 	"tags": [],
 	"description": "This is openstacklcm-operator blueprint page",
-	"content": "OpenstackLCM \n"
+	"content": "OpenstackLCM Rationale Create a Kubernetes Operator able to orchestrate draining traffic, upgrading, testing, traffic rollout\u0026hellip;\nDocumentation  Readme  Associated GIT Repos  oslc-operator  \n"
 },
 {
 	"uri": "/about/",
