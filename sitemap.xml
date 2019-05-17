@@ -11,6 +11,22 @@
   </url>
   
   <url>
+    <loc>/kustomize/</loc>
+  </url>
+  
+  <url>
+    <loc>/armada-operator/</loc>
+  </url>
+  
+  <url>
+    <loc>/airship-treasuremap/</loc>
+  </url>
+  
+  <url>
+    <loc>/oslc-operator/</loc>
+  </url>
+  
+  <url>
     <loc>/about/</loc>
   </url>
   

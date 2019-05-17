@@ -14,6 +14,34 @@
 	"content": " Posts Convertion to new HUGO is still WIP\n"
 },
 {
+	"uri": "/kustomize/",
+	"title": "Kustomize",
+	"tags": [],
+	"description": "This is the kustomize blueprint page",
+	"content": "Kustomize \n"
+},
+{
+	"uri": "/armada-operator/",
+	"title": "Armada",
+	"tags": [],
+	"description": "This is armada-operator blueprint page",
+	"content": "Armada \n"
+},
+{
+	"uri": "/airship-treasuremap/",
+	"title": "TreasureMap",
+	"tags": [],
+	"description": "This is airship-treasuremap blueprint page",
+	"content": "Armada \n"
+},
+{
+	"uri": "/oslc-operator/",
+	"title": "OpenstackLCM",
+	"tags": [],
+	"description": "This is openstacklcm-operator blueprint page",
+	"content": "OpenstackLCM \n"
+},
+{
 	"uri": "/about/",
 	"title": "About KELEUSTES",
 	"tags": [],
