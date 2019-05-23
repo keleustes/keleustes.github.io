@@ -25,14 +25,14 @@
 	"title": "Armada",
 	"tags": [],
 	"description": "This is armada-operator blueprint page",
-	"content": "Armada Rationale Investigate the feasability of converting airship-armada functions into a Kubernetes operator pattern\nDocumentation  ReadTheDocs Readme  Associated GIT Repos  armada-operator airship-armada  \n"
+	"content": "Armada Rationale  Investigate the feasibility of converting airship-armada functions into a Kubernetes operator pattern  Documentation  ReadTheDocs Readme  Associated GIT Repos  armada-operator airship-armada  \n"
 },
 {
 	"uri": "/airship-treasuremap/",
 	"title": "TreasureMap",
 	"tags": [],
 	"description": "This is airship-treasuremap blueprint page",
-	"content": "TreasureMap Rationale Investigate the feasability of converting airship-treasuremap site descriptions into kustomize site descriptions (Kubernetes CRD based).\nThe kustomize layering are beeing leverage (global, type, site).\nDocumentation  ReadTheDocs Readme  Associated GIT Repos  airship-treasuremap airship-treasuremap  \n"
+	"content": "TreasureMap Rationale  Investigate the feasibility of converting airship-treasuremap site descriptions into kustomize site descriptions (Kubernetes CRD based). The kustomize layering are beeing leverage (global, type, site).  Documentation  ReadTheDocs Readme  Associated GIT Repos  airship-treasuremap airship-treasuremap  \n"
 },
 {
 	"uri": "/oslc-operator/",
@@ -46,7 +46,7 @@
 	"title": "cluster-api",
 	"tags": [],
 	"description": "This is cluster-api POC page",
-	"content": "cluster-api Rationale  This POC of a baremetal cluster-api provider was started before the official cluster-api-provider-baremetal This POC was relying on Airship Drydock/Maas. Thanks to the work done by the the metal3.io team, most of that this POC has become irrelevant. The remaining questions that can be kind of answered by this POC are:  Is DivingBell still relevant. Is the cluster-api in charge of updating, rebooting machines when the machine specs are updated. How much of Promenade is still relevant. cluster-api indeed helping to save the kubeadm token into configmaps to help machine to join. Can kustomize be used to build the cluster-api MachineList and Cluster CRDs.   Documentation  TBD  Associated GIT Repos  cluster-api cluster-api-provider-baremetal cluster-api-provider-airship  \n"
+	"content": "Cluster API Rationale  This POC of a baremetal cluster-api provider was started before the official cluster-api-provider-baremetal This POC was relying on Airship Drydock/Maas. Thanks to the work done by the the metal3.io team, most of that this POC has become irrelevant. The remaining questions that can be kind of answered by this POC are:  Is DivingBell still relevant. Is the cluster-api in charge of updating, rebooting machines when the machine specs are updated. How much of Promenade is still relevant. cluster-api indeed helping to save the kubeadm token into configmaps to help machine to join. Can kustomize be used to build the cluster-api MachineList and Cluster CRDs from Airship Site definitions.   Documentation  TBD  Associated GIT Repos  cluster-api cluster-api-provider-baremetal cluster-api-provider-airship  \n"
 },
 {
 	"uri": "/about/",
