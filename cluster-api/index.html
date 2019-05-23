@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.46" />
-    <meta name="description" content="KELEUSTES">
+    <meta name="description" content="This is cluster-api POC page">
 <meta name="author" content="Keleustes Team">
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
-    <title>About KELEUSTES :: KELEUSTES&#39;s Blog</title>
+    <title>cluster-api :: KELEUSTES&#39;s Blog</title>
 
     
     <link href="/css/nucleus.css?1558650426" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/about/">
+  <body class="" data-url="/cluster-api/">
     <nav id="sidebar" class="">
 
 
@@ -234,8 +234,8 @@
   
     
     <li data-nav-id="/cluster-api/" title="cluster-api" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/cluster-api/">
@@ -256,8 +256,8 @@
   
     
     <li data-nav-id="/about/" title="About KELEUSTES" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/about/">
@@ -300,7 +300,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/keleustes/blog/tree/master/content/about/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/keleustes/blog/tree/master/content/cluster-api/_index.en.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -323,7 +323,7 @@
             
           
           
-            <a href='/'>Keleustes</a> > About KELEUSTES
+            <a href='/'>Keleustes</a> > cluster-api
           
          
           
@@ -344,12 +344,58 @@
         
 
 
+<h1 id="cluster-api">cluster-api</h1>
+
+<h2 id="rationale">Rationale</h2>
+
+<ul>
+<li>This POC of a baremetal cluster-api provider was started before the official <a href="https://github.com/metal3-io/cluster-api-provider-baremetal" target="_blank">cluster-api-provider-baremetal</a></li>
+<li>This POC was relying on Airship Drydock/Maas. Thanks to the work done by the the metal3.io team, most of that this POC has become
+irrelevant.</li>
+<li>The remaining questions that can be kind of answered by this POC are:
+
+<ul>
+<li>Is DivingBell still relevant. Is the cluster-api in charge of updating, rebooting machines when the machine specs are updated.</li>
+<li>How much of Promenade is still relevant. cluster-api indeed helping to save the kubeadm token into configmaps to help
+machine to join.</li>
+<li>Can kustomize be used to build the cluster-api MachineList and Cluster CRDs.</li>
+</ul></li>
+</ul>
+
+<h2 id="documentation">Documentation</h2>
+
+<ul>
+<li>TBD</li>
+</ul>
+
+<h2 id="associated-git-repos">Associated GIT Repos</h2>
+
+<ul>
+<li><a href="https://github.com/kubernetes-sigs/cluster-api" target="_blank">cluster-api</a></li>
+<li><a href="https://github.com/metal3-io/cluster-api-provider-baremetal" target="_blank">cluster-api-provider-baremetal</a></li>
+<li><a href="https://github.com/keleustes/cluster-api-provider-airship.git" target="_blank">cluster-api-provider-airship</a></li>
+</ul>
+
+<p></p>
 
 
-<h1 id="about">About</h1>
 
-<p>WIP</p>
 
+
+
+
+
+<ul class="children children-h3">
+	
+    
+    
+
+	
+		
+	
+
+	
+</ul>
 
 <footer class=" footline" >
 	
@@ -471,6 +517,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -487,6 +534,8 @@
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -506,10 +555,10 @@
 
 
         
-            <a class="nav nav-prev" href="/cluster-api/" title="cluster-api"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/oslc-operator/" title="OpenstackLCM"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/post/" title="Latest News" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/about/" title="About KELEUSTES" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 
