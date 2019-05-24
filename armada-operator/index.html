@@ -12,19 +12,19 @@
     <title>Armada :: KELEUSTES&#39;s Blog</title>
 
     
-    <link href="/css/nucleus.css?1558723312" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1558723312" rel="stylesheet">
-    <link href="/css/hybrid.css?1558723312" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1558723312" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1558723312" rel="stylesheet">
-    <link href="/css/auto-complete.css?1558723312" rel="stylesheet">
-    <link href="/css/theme.css?1558723312" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1558723312" rel="stylesheet">
+    <link href="/css/nucleus.css?1558725027" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1558725027" rel="stylesheet">
+    <link href="/css/hybrid.css?1558725027" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1558725027" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1558725027" rel="stylesheet">
+    <link href="/css/auto-complete.css?1558725027" rel="stylesheet">
+    <link href="/css/theme.css?1558725027" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1558725027" rel="stylesheet">
     
-      <link href="/css/theme-keleustes.css?1558723312" rel="stylesheet">
+      <link href="/css/theme-keleustes.css?1558725027" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1558723312"></script>
+    <script src="/js/jquery-2.x.min.js?1558725027"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1558723312"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1558723312"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1558725027"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1558725027"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1558723312"></script>
+<script type="text/javascript" src="/js/search.js?1558725027"></script>
 
     
   </div>
@@ -382,19 +382,32 @@ out of the go code:
 <ul>
 <li>During the CRD definition, the system especially during deep-copy generation does not
 really support generic yaml object such as interface{}. The Values of the ArmadaChart that would leave untyped (interface{}) when
-using go had to be modified to use a well defined struct. (ArmadaChartValue)[<a href="https://github.com/keleustes/armada-operator/blob/master/pkg/apis/armada/v1alpha1/armadachart_types.go#L105" target="_blank">https://github.com/keleustes/armada-operator/blob/master/pkg/apis/armada/v1alpha1/armadachart_types.go#L105</a>]. This increases the complexity very rapidely.</li>
+using go had to be modified to use a well defined struct:
+<a href="https://github.com/keleustes/armada-operator/blob/master/pkg/apis/armada/v1alpha1/armadachart_types.go#L105" target="_blank">ArmadaChartValue</a>.
+This increases the complexity very rapidely.</li>
 <li>We could not get a []byte construct to be used instead.</li>
 <li>Moreover, any struct not beeing well defined as in
 <a href="https://github.com/keleustes/armada-operator/blob/master/pkg/apis/armada/v1alpha1/armadachart_values_types.go#L147" target="_blank">AVConf</a>,
-gives ability to the system to be more permissive and the corresponding data is not accessible in the struct return to the
+gives ability to the system to be more permissive but the corresponding data is not accessible in the struct return to the
 <a href="https://github.com/keleustes/armada-operator/blob/master/pkg/controller/armada/chart_controller.go#L120" target="_blank">reconcile method</a></li>
 </ul></li>
+<li>Fundamentally, all the different constructs for the values.yaml of all the charts developped for airship and openstack-helm,
+are beeing funnel through the construct. Even the teams did an outstanding job of consolidation of those charts, outsiders
+are spotted causing very quickly issues and prevent a <code>kubectl apply -f xxx.yaml</code> to work.</li>
+<li>In the partical cases of the ArmadaChart, the feature overlapping with the work done by the helmv3 team:
+<a href="https://github.com/helm/helm/blob/dev-v3/pkg/chartutil/jsonschema.go#L58" target="_blank">schema validation</a></li>
 </ul>
 
 <h3 id="operator-usage">Operator Usage</h3>
 
 <ul>
-<li>Kubernetes Event Handling: TBD</li>
+<li>Kubernetes Event Handling:
+
+<ul>
+<li>One of main arship-armada feature is to be able to detect when the resources deployed by an helm chart are
+available, timeout and potentially delete the release if something went wrong:
+<a href="https://opendev.org/airship/armada/src/branch/master/armada/handlers/wait.py#L391" target="_blank">airship-armada</a></li>
+</ul></li>
 <li>RBAC Implication: Kubernetes RBAC and service accounts are used. Because the armada-operator oftens ends up
 running helm charts which are creating new service accounts, the rights provided to the armada-operator looks
 kind of extensive: <a href="https://github.com/keleustes/armada-operator/blob/master/chart/templates/role.yaml" target="_blank">roles</a></li>
@@ -668,20 +681,20 @@ deployed through <code>helm install</code> or <code>helm upgrade</code> are read
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1558723312"></script>
-    <script src="/js/perfect-scrollbar.min.js?1558723312"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1558723312"></script>
-    <script src="/js/jquery.sticky.js?1558723312"></script>
-    <script src="/js/featherlight.min.js?1558723312"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1558723312"></script>
-    <script src="/js/highlight.pack.js?1558723312"></script>
+    <script src="/js/clipboard.min.js?1558725027"></script>
+    <script src="/js/perfect-scrollbar.min.js?1558725027"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1558725027"></script>
+    <script src="/js/jquery.sticky.js?1558725027"></script>
+    <script src="/js/featherlight.min.js?1558725027"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1558725027"></script>
+    <script src="/js/highlight.pack.js?1558725027"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1558723312"></script>
-    <script src="/js/learn.js?1558723312"></script>
-    <script src="/js/hugo-learn.js?1558723312"></script>
+    <script src="/js/modernizr.custom.71422.js?1558725027"></script>
+    <script src="/js/learn.js?1558725027"></script>
+    <script src="/js/hugo-learn.js?1558725027"></script>
 
-    <link href="/mermaid/mermaid.css?1558723312" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1558723312"></script>
+    <link href="/mermaid/mermaid.css?1558725027" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1558725027"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
