@@ -36,7 +36,7 @@
 },
 {
 	"uri": "/oslc-operator/",
-	"title": "OpenstackLCM",
+	"title": "LifeCycle Manager",
 	"tags": [],
 	"description": "This is keleustes OpenstackService LifeCycle operator POC",
 	"content": "OpenstackLCM Rationale  Create a Kubernetes Operator able to orchestrate draining traffic, upgrading, testing, traffic rollout\u0026hellip; The main lesson learned from this POC is the ability to use the helm rendering to provide a unified way of delivering scripts onto a platform and at runtime selectively decide which part of the chart to render according to the state of the service which lifecycle may not match exactly the lifecycle of a helm chart (i.e install, upgrade, rollback, delete).  Lessons Learned Multi facet charts  TBD  Traffic Draining  TBD  ScaleUp / ScaleDown  TBD  Documentation  Readme  Associated GIT Repos  oslc-operator  \n"
@@ -56,18 +56,18 @@
 	"content": "Kubeadm Rationale  Investigate the feasibility of converting promenade functions to kubeadm. For that purpose improvments have been made and proposed to the kubeadm community. This is not a \u0026ldquo;replacement\u0026rdquo; for airship promenade. This POC merely aims at highlighting the potential advantages and pitfall in going in that direction.  Lessons Learned Layering  TBD  Substitutions  TBD  Documentation  ReadTheDocs Readme  Associated GIT Repos  kubeadm airship-promenade  \n"
 },
 {
-	"uri": "/about/",
-	"title": "About KELEUSTES",
-	"tags": [],
-	"description": "",
-	"content": " About WIP\n"
-},
-{
 	"uri": "/argo/",
 	"title": "Argo",
 	"tags": [],
 	"description": "This is the keleustes argo POC page",
 	"content": "Argo Rationale  Investigate the feasibility of converting shipyard functions to argo. For that purpose improvments have been made and proposed to the argo community. This is not a \u0026ldquo;replacement\u0026rdquo; for airship shipyard. This POC merely aims at highlighting the potential advantages and pitfall in going in that direction.  Lessons Learned Workflow  TBD  Documentation  ReadTheDocs Readme  Associated GIT Repos  argo airship-shipyard  \n"
+},
+{
+	"uri": "/about/",
+	"title": "About KELEUSTES",
+	"tags": [],
+	"description": "",
+	"content": " About WIP\n"
 },
 {
 	"uri": "/categories/",
