@@ -42,11 +42,11 @@
 	"content": "OpenstackLCM Rationale  Create a Kubernetes Operator able to orchestrate draining traffic, upgrading, testing, traffic rollout\u0026hellip; The main lesson learned from this POC is the ability to use the helm rendering to provide a unified way of delivering scripts onto a platform and at runtime selectively decide which part of the chart to render according to the state of the service which lifecycle may not match exactly the lifecycle of a helm chart (i.e install, upgrade, rollback, delete).  Lessons Learned Multi facet charts  TBD  Traffic Draining  TBD  ScaleUp / ScaleDown  TBD  Documentation  Readme  Associated GIT Repos  oslc-operator  \n"
 },
 {
-	"uri": "/argo/",
-	"title": "Argo",
+	"uri": "/cluster-api/",
+	"title": "Cluster-API",
 	"tags": [],
-	"description": "This is the keleustes argo POC page",
-	"content": "Argo Rationale  Investigate the feasibility of converting shipyard functions to argo. For that purpose improvments have been made and proposed to the argo community. This is not a \u0026ldquo;replacement\u0026rdquo; for airship shipyard. This POC merely aims at highlighting the potential advantages and pitfall in going in that direction.  Lessons Learned Workflow  TBD  Documentation  ReadTheDocs Readme  Associated GIT Repos  argo airship-shipyard  \n"
+	"description": "This is the keleustes cluyster-api POC page",
+	"content": "Cluster API Rationale  This POC of a baremetal cluster-api provider was started before the official cluster-api-provider-baremetal This POC was relying on Airship Drydock/Maas. Thanks to the work done by the the metal3.io team, most of that this POC has become irrelevant. The remaining questions that can be kind of answered by this POC are:  Is DivingBell still relevant. Is the cluster-api in charge of updating, rebooting machines when the machine specs are updated. How much of Promenade is still relevant. cluster-api indeed helping to save the kubeadm token into configmaps to help machine to join. Can kustomize be used to build the cluster-api MachineList and Cluster CRDs from Airship Site definitions.  This is not a \u0026ldquo;replacement\u0026rdquo; for airship drydock. This POC merely aims at highlighting the potential advantages and pitfall in going in that direction.  Lessons Learned Baremetal machine greenfield deployment  TBD  Baremetal machine brownfield upgrade and update  Docker, Kubelet: TBD OS: TBD  Kubernetes state maintenance  kubeproxy, api-server,\u0026hellip;: TBD  Documentation  TBD  Associated GIT Repos  cluster-api cluster-api-provider-baremetal cluster-api-provider-airship  \n"
 },
 {
 	"uri": "/kubeadm/",
@@ -56,18 +56,18 @@
 	"content": "Kubeadm Rationale  Investigate the feasibility of converting promenade functions to kubeadm. For that purpose improvments have been made and proposed to the kubeadm community. This is not a \u0026ldquo;replacement\u0026rdquo; for airship promenade. This POC merely aims at highlighting the potential advantages and pitfall in going in that direction.  Lessons Learned Layering  TBD  Substitutions  TBD  Documentation  ReadTheDocs Readme  Associated GIT Repos  kubeadm airship-promenade  \n"
 },
 {
-	"uri": "/cluster-api/",
-	"title": "cluster-api",
-	"tags": [],
-	"description": "This is the keleustes cluyster-api POC page",
-	"content": "Cluster API Rationale  This POC of a baremetal cluster-api provider was started before the official cluster-api-provider-baremetal This POC was relying on Airship Drydock/Maas. Thanks to the work done by the the metal3.io team, most of that this POC has become irrelevant. The remaining questions that can be kind of answered by this POC are:  Is DivingBell still relevant. Is the cluster-api in charge of updating, rebooting machines when the machine specs are updated. How much of Promenade is still relevant. cluster-api indeed helping to save the kubeadm token into configmaps to help machine to join. Can kustomize be used to build the cluster-api MachineList and Cluster CRDs from Airship Site definitions.  This is not a \u0026ldquo;replacement\u0026rdquo; for airship drydock. This POC merely aims at highlighting the potential advantages and pitfall in going in that direction.  Lessons Learned Baremetal machine greenfield deployment  TBD  Baremetal machine brownfield upgrade and update  Docker, Kubelet: TBD OS: TBD  Kubernetes state maintenance  kubeproxy, api-server,\u0026hellip;: TBD  Documentation  TBD  Associated GIT Repos  cluster-api cluster-api-provider-baremetal cluster-api-provider-airship  \n"
-},
-{
 	"uri": "/about/",
 	"title": "About KELEUSTES",
 	"tags": [],
 	"description": "",
 	"content": " About WIP\n"
+},
+{
+	"uri": "/argo/",
+	"title": "Argo",
+	"tags": [],
+	"description": "This is the keleustes argo POC page",
+	"content": "Argo Rationale  Investigate the feasibility of converting shipyard functions to argo. For that purpose improvments have been made and proposed to the argo community. This is not a \u0026ldquo;replacement\u0026rdquo; for airship shipyard. This POC merely aims at highlighting the potential advantages and pitfall in going in that direction.  Lessons Learned Workflow  TBD  Documentation  ReadTheDocs Readme  Associated GIT Repos  argo airship-shipyard  \n"
 },
 {
 	"uri": "/categories/",
