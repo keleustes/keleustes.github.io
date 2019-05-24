@@ -12,19 +12,19 @@
     <title>Armada :: KELEUSTES&#39;s Blog</title>
 
     
-    <link href="/css/nucleus.css?1558725957" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1558725957" rel="stylesheet">
-    <link href="/css/hybrid.css?1558725957" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1558725957" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1558725957" rel="stylesheet">
-    <link href="/css/auto-complete.css?1558725957" rel="stylesheet">
-    <link href="/css/theme.css?1558725957" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1558725957" rel="stylesheet">
+    <link href="/css/nucleus.css?1558727690" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1558727690" rel="stylesheet">
+    <link href="/css/hybrid.css?1558727690" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1558727690" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1558727690" rel="stylesheet">
+    <link href="/css/auto-complete.css?1558727690" rel="stylesheet">
+    <link href="/css/theme.css?1558727690" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1558727690" rel="stylesheet">
     
-      <link href="/css/theme-keleustes.css?1558725957" rel="stylesheet">
+      <link href="/css/theme-keleustes.css?1558727690" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1558725957"></script>
+    <script src="/js/jquery-2.x.min.js?1558727690"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1558725957"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1558725957"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1558727690"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1558727690"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1558725957"></script>
+<script type="text/javascript" src="/js/search.js?1558727690"></script>
 
     
   </div>
@@ -406,7 +406,7 @@ are spotted causing very quickly issues and prevent a <code>kubectl apply -f xxx
 <ul>
 <li>The armada-operator code was largely coming for the operator-fwk helm implemention,
 especially the <a href="https://github.com/operator-framework/operator-sdk/blob/master/pkg/helm/watches/watches.go#L90" target="_blank">watch</a>
-and the way the owner is added to the top k8s objects deployed by an helm release
+and the way the owner is added to the top k8s objects deployed by tiller
 <a href="https://github.com/operator-framework/operator-sdk/blob/master/pkg/helm/engine/ownerref.go#L92" target="_blank">owner</a></li>
 <li>The armada-operator can now decide what to do when an object owned by an ArmadaChart is deleted which helps
 for consistency. What to do if a user ran a &lsquo;kubectl edit&rsquo; command in the back of armada, or if a stateful set created
@@ -434,7 +434,17 @@ Otherwise the operator can be deployed using <a href="https://github.com/keleust
 <h3 id="helmv2-vs-helmv3">HelmV2 vs HelmV3</h3>
 
 <ul>
-<li>Tiller dependency: TBD</li>
+<li>Tiller dependency:
+
+<ul>
+<li>As for the event handling, the bulk of the behavior was provided by the operator-fwk: <a href="https://github.com/operator-framework/operator-sdk/blob/master/pkg/helm/release/manager_factory.go#L89" target="_blank">helm</a> and then adapter in the armada-operator:
+<a href="https://github.com/keleustes/armada-operator/blob/master/pkg/helmv2/manager_factory.go" target="_blank">armada-operator</a></li>
+<li>Tiller is using an <a href="https://github.com/keleustes/armada-operator/blob/master/pkg/helmv2/manager_factory.go#L45" target="_blank">in-memory storage</a></li>
+<li>Tiller ReleaseServer construct is also local to the operator:
+<a href="https://github.com/helm/helm/blob/master/pkg/tiller/release_server.go#L93" target="_blank">local</a></li>
+<li>Once helmv3 client library is released, it will be possible to leverage instead of a local tiller release manager as for
+helm v2.</li>
+</ul></li>
 <li>Helm Golang code dependency: Using the go client code instead of the
 <a href="https://github.com/argoproj/argo-cd/blob/master/util/helm/helm.go#L206" target="_blank">helm execute</a>
 brings use the power of using go code but also brings dependencies issues on the helm code structure.
@@ -696,20 +706,20 @@ deployed through <code>helm install</code> or <code>helm upgrade</code> are read
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1558725957"></script>
-    <script src="/js/perfect-scrollbar.min.js?1558725957"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1558725957"></script>
-    <script src="/js/jquery.sticky.js?1558725957"></script>
-    <script src="/js/featherlight.min.js?1558725957"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1558725957"></script>
-    <script src="/js/highlight.pack.js?1558725957"></script>
+    <script src="/js/clipboard.min.js?1558727690"></script>
+    <script src="/js/perfect-scrollbar.min.js?1558727690"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1558727690"></script>
+    <script src="/js/jquery.sticky.js?1558727690"></script>
+    <script src="/js/featherlight.min.js?1558727690"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1558727690"></script>
+    <script src="/js/highlight.pack.js?1558727690"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1558725957"></script>
-    <script src="/js/learn.js?1558725957"></script>
-    <script src="/js/hugo-learn.js?1558725957"></script>
+    <script src="/js/modernizr.custom.71422.js?1558727690"></script>
+    <script src="/js/learn.js?1558727690"></script>
+    <script src="/js/hugo-learn.js?1558727690"></script>
 
-    <link href="/mermaid/mermaid.css?1558725957" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1558725957"></script>
+    <link href="/mermaid/mermaid.css?1558727690" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1558727690"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
