@@ -27,6 +27,14 @@
   </url>
   
   <url>
+    <loc>/argo/</loc>
+  </url>
+  
+  <url>
+    <loc>/kubeadm/</loc>
+  </url>
+  
+  <url>
     <loc>/cluster-api/</loc>
   </url>
   
