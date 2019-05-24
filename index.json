@@ -4,7 +4,7 @@
 	"title": "Keleustes",
 	"tags": [],
 	"description": "Main page",
-	"content": " Keleustes Rationale  The projects listed here are POC intended to help make educated decisions for the implementation of OpenInfrastructure Airship project. None of thoses POC aimed at replacing for airship components. Those POC merely aim at highlighting the potential advantages and pitfalls of choosing one technology versus another.  Airship Design  Airship OpenDiscussion Specs Governance  Airship Implementation  airship treasuremap pegleg spyglass shipyard armada deckhand drydock promenade divingbell maas  Openstack Helm  openstackhelm openstackhelm openstackhelm openstack  "
+	"content": " Keleustes Rationale  The projects listed here are POC intended to help make educated decisions for the implementation of OpenInfrastructure Airship project. None of thoses POC aimed at replacing for airship components. Those POC merely aim at highlighting the potential advantages and pitfalls of choosing one technology versus another.  Airship Design  Airship OpenDiscussion Specs Governance  Airship Related Links  airship treasuremap pegleg spyglass shipyard armada deckhand drydock promenade divingbell maas  Openstack Related Links  openstack openstack-helm openstack-helm-infra  "
 },
 {
 	"uri": "/post/",
