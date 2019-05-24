@@ -12,19 +12,19 @@
     <title>Armada :: KELEUSTES&#39;s Blog</title>
 
     
-    <link href="/css/nucleus.css?1558725027" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1558725027" rel="stylesheet">
-    <link href="/css/hybrid.css?1558725027" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1558725027" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1558725027" rel="stylesheet">
-    <link href="/css/auto-complete.css?1558725027" rel="stylesheet">
-    <link href="/css/theme.css?1558725027" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1558725027" rel="stylesheet">
+    <link href="/css/nucleus.css?1558725957" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1558725957" rel="stylesheet">
+    <link href="/css/hybrid.css?1558725957" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1558725957" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1558725957" rel="stylesheet">
+    <link href="/css/auto-complete.css?1558725957" rel="stylesheet">
+    <link href="/css/theme.css?1558725957" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1558725957" rel="stylesheet">
     
-      <link href="/css/theme-keleustes.css?1558725027" rel="stylesheet">
+      <link href="/css/theme-keleustes.css?1558725957" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1558725027"></script>
+    <script src="/js/jquery-2.x.min.js?1558725957"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1558725027"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1558725027"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1558725957"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1558725957"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1558725027"></script>
+<script type="text/javascript" src="/js/search.js?1558725957"></script>
 
     
   </div>
@@ -401,12 +401,27 @@ are spotted causing very quickly issues and prevent a <code>kubectl apply -f xxx
 <h3 id="operator-usage">Operator Usage</h3>
 
 <ul>
+<li>Ownership of objects:
+
+<ul>
+<li>The armada-operator code was largely coming for the operator-fwk helm implemention,
+especially the <a href="https://github.com/operator-framework/operator-sdk/blob/master/pkg/helm/watches/watches.go#L90" target="_blank">watch</a>
+and the way the owner is added to the top k8s objects deployed by an helm release
+<a href="https://github.com/operator-framework/operator-sdk/blob/master/pkg/helm/engine/ownerref.go#L92" target="_blank">owner</a></li>
+<li>The armada-operator can now decide what to do when an object owned by an ArmadaChart is deleted which helps
+for consistency. What to do if a user ran a &lsquo;kubectl edit&rsquo; command in the back of armada, or if a stateful set created
+by an armada chart is beeing deleted. Should the object be recreated or the status of the armadachart set to &ldquo;inconsistent&rdquo;.</li>
+</ul></li>
 <li>Kubernetes Event Handling:
 
 <ul>
-<li>One of main arship-armada feature is to be able to detect when the resources deployed by an helm chart are
+<li>One of the main arship-armada feature is to be able to detect when the resources deployed by an helm chart are
 available, timeout and potentially delete the release if something went wrong:
 <a href="https://opendev.org/airship/armada/src/branch/master/armada/handlers/wait.py#L391" target="_blank">airship-armada</a></li>
+<li>Since the armada-operator is listening on all the object owned by an ArmadaChart, it was possible to emulate the
+feature:</li>
+<li>An event detecting a change of state triggers a reconcile: <a href="https://github.com/keleustes/armada-operator/blob/master/pkg/controller/armada/base_controller.go#L92" target="_blank">event</a></li>
+<li>When the resources deployed by the helm release, the ArmadaChart status goes from &ldquo;running&rdquo; to &ldquo;ready/deployed&rdquo;: <a href="https://github.com/keleustes/armada-operator/blob/master/pkg/controller/armada/chart_controller.go#L448" target="_blank">ready</a></li>
 </ul></li>
 <li>RBAC Implication: Kubernetes RBAC and service accounts are used. Because the armada-operator oftens ends up
 running helm charts which are creating new service accounts, the rights provided to the armada-operator looks
@@ -681,20 +696,20 @@ deployed through <code>helm install</code> or <code>helm upgrade</code> are read
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1558725027"></script>
-    <script src="/js/perfect-scrollbar.min.js?1558725027"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1558725027"></script>
-    <script src="/js/jquery.sticky.js?1558725027"></script>
-    <script src="/js/featherlight.min.js?1558725027"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1558725027"></script>
-    <script src="/js/highlight.pack.js?1558725027"></script>
+    <script src="/js/clipboard.min.js?1558725957"></script>
+    <script src="/js/perfect-scrollbar.min.js?1558725957"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1558725957"></script>
+    <script src="/js/jquery.sticky.js?1558725957"></script>
+    <script src="/js/featherlight.min.js?1558725957"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1558725957"></script>
+    <script src="/js/highlight.pack.js?1558725957"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1558725027"></script>
-    <script src="/js/learn.js?1558725027"></script>
-    <script src="/js/hugo-learn.js?1558725027"></script>
+    <script src="/js/modernizr.custom.71422.js?1558725957"></script>
+    <script src="/js/learn.js?1558725957"></script>
+    <script src="/js/hugo-learn.js?1558725957"></script>
 
-    <link href="/mermaid/mermaid.css?1558725027" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1558725027"></script>
+    <link href="/mermaid/mermaid.css?1558725957" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1558725957"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
