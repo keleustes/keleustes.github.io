@@ -12,19 +12,19 @@
     <title>Armada :: KELEUSTES&#39;s Blog</title>
 
     
-    <link href="/css/nucleus.css?1558714491" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1558714491" rel="stylesheet">
-    <link href="/css/hybrid.css?1558714491" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1558714491" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1558714491" rel="stylesheet">
-    <link href="/css/auto-complete.css?1558714491" rel="stylesheet">
-    <link href="/css/theme.css?1558714491" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1558714491" rel="stylesheet">
+    <link href="/css/nucleus.css?1558718888" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1558718888" rel="stylesheet">
+    <link href="/css/hybrid.css?1558718888" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1558718888" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1558718888" rel="stylesheet">
+    <link href="/css/auto-complete.css?1558718888" rel="stylesheet">
+    <link href="/css/theme.css?1558718888" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1558718888" rel="stylesheet">
     
-      <link href="/css/theme-keleustes.css?1558714491" rel="stylesheet">
+      <link href="/css/theme-keleustes.css?1558718888" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1558714491"></script>
+    <script src="/js/jquery-2.x.min.js?1558718888"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1558714491"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1558714491"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1558718888"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1558718888"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1558714491"></script>
+<script type="text/javascript" src="/js/search.js?1558718888"></script>
 
     
   </div>
@@ -360,7 +360,7 @@
 <li>Investigate the feasibility of converting airship-armada functions
 into a Kubernetes operator pattern.</li>
 <li>This is not a &ldquo;replacement&rdquo; for airship armada. This POC merely aims
-at highlighting the potential advantages and pitfall in going in that
+to highlight the potential advantages and pitfall in going in that
 direction.</li>
 </ul>
 
@@ -369,7 +369,14 @@ direction.</li>
 <h3 id="crd-usages">CRD usages</h3>
 
 <ul>
-<li>Schema validation: TBD</li>
+<li>Schema validation: openAPIV3 schema validation is supported by <code>kubectl</code>. The schema can be generated
+out of the go code:
+
+<ul>
+<li><a href="https://github.com/keleustes/armada-operator/blob/master/chart/templates/armada_v1alpha1_armadachart.yaml#L32" target="_blank">generated schema</a></li>
+<li><a href="https://github.com/keleustes/armada-operator/blob/master/Makefile#L46" target="_blank">generation mechanism</a></li>
+<li><a href="https://github.com/keleustes/armada-operator/blob/master/pkg/apis/armada/v1alpha1/armadachart_types.go#L141" target="_blank">go code</a></li>
+</ul></li>
 <li>DeepCopy and structured types in golang: TBD</li>
 </ul>
 
@@ -377,15 +384,29 @@ direction.</li>
 
 <ul>
 <li>Kubernetes Event Handling: TBD</li>
-<li>RBAC Implication: TBD</li>
-<li>Deployment of the operator itself: TBD</li>
+<li>RBAC Implication: Kubernetes RBAC and service accounts are used. Because the armada-operator oftens ends up
+running helm charts which are creating new service accounts, the rights provided to the armada-operator looks
+kind of extensive: <a href="https://github.com/keleustes/armada-operator/blob/master/chart/templates/role.yaml" target="_blank">roles</a></li>
+<li>Deployment of the operator itself: The operator is deployed in kubernetes itself. If using helm, we have some
+kind of <a href="https://github.com/keleustes/armada-operator/blob/master/Makefile#L87" target="_blank">chicken-egg issue</a>.
+Otherwise the operator can be deployed using <a href="https://github.com/keleustes/airship-treasuremap/blob/master/Makefile#L2" target="_blank">simple kubectl</a></li>
 </ul>
 
 <h3 id="helmv2-vs-helmv3">HelmV2 vs HelmV3</h3>
 
 <ul>
 <li>Tiller dependency: TBD</li>
-<li>Helm Golang code dependency: TBD</li>
+<li>Helm Golang code dependency: Using the go client code instead of the
+<a href="https://github.com/argoproj/argo-cd/blob/master/util/helm/helm.go#L206" target="_blank">helm execute</a>
+brings use the power of using go code but also brings dependencies issues on the helm code structure.
+We had to account for the improvments and refactorexing done by the helm team:
+
+<ul>
+<li><a href="https://github.com/keleustes/armada-operator/blob/master/pkg/helmv2/chart_manager.go#L15" target="_blank">v2 tag</a></li>
+<li><a href="https://github.com/keleustes/armada-operator/blob/master/pkg/helmv2/chart_manager.go#L40" target="_blank">chart struct in helmv2</a></li>
+<li><a href="https://github.com/keleustes/armada-operator/blob/master/pkg/helmv3/chart_manager.go#L15" target="_blank">v3 tag</a></li>
+<li><a href="https://github.com/keleustes/armada-operator/blob/master/pkg/helmv3/chart_manager.go#L38" target="_blank">chart struct in helmv3</a></li>
+</ul></li>
 </ul>
 
 <h3 id="multithreading-and-concurrency">Multithreading and Concurrency</h3>
@@ -636,20 +657,20 @@ deployed through <code>helm install</code> or <code>helm upgrade</code> are read
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1558714491"></script>
-    <script src="/js/perfect-scrollbar.min.js?1558714491"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1558714491"></script>
-    <script src="/js/jquery.sticky.js?1558714491"></script>
-    <script src="/js/featherlight.min.js?1558714491"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1558714491"></script>
-    <script src="/js/highlight.pack.js?1558714491"></script>
+    <script src="/js/clipboard.min.js?1558718888"></script>
+    <script src="/js/perfect-scrollbar.min.js?1558718888"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1558718888"></script>
+    <script src="/js/jquery.sticky.js?1558718888"></script>
+    <script src="/js/featherlight.min.js?1558718888"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1558718888"></script>
+    <script src="/js/highlight.pack.js?1558718888"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1558714491"></script>
-    <script src="/js/learn.js?1558714491"></script>
-    <script src="/js/hugo-learn.js?1558714491"></script>
+    <script src="/js/modernizr.custom.71422.js?1558718888"></script>
+    <script src="/js/learn.js?1558718888"></script>
+    <script src="/js/hugo-learn.js?1558718888"></script>
 
-    <link href="/mermaid/mermaid.css?1558714491" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1558714491"></script>
+    <link href="/mermaid/mermaid.css?1558718888" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1558718888"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
