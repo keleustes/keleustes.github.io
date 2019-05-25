@@ -3,52 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/</loc>
+    <loc>https://keleustes.github.io/</loc>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>https://keleustes.github.io/post/</loc>
   </url>
   
   <url>
-    <loc>/kustomize/</loc>
+    <loc>https://keleustes.github.io/kustomize/</loc>
   </url>
   
   <url>
-    <loc>/armada-operator/</loc>
+    <loc>https://keleustes.github.io/armada-operator/</loc>
   </url>
   
   <url>
-    <loc>/airship-treasuremap/</loc>
+    <loc>https://keleustes.github.io/airship-treasuremap/</loc>
   </url>
   
   <url>
-    <loc>/oslc-operator/</loc>
+    <loc>https://keleustes.github.io/oslc-operator/</loc>
   </url>
   
   <url>
-    <loc>/cluster-api/</loc>
+    <loc>https://keleustes.github.io/cluster-api/</loc>
   </url>
   
   <url>
-    <loc>/kubeadm/</loc>
+    <loc>https://keleustes.github.io/kubeadm/</loc>
   </url>
   
   <url>
-    <loc>/argo/</loc>
+    <loc>https://keleustes.github.io/argo/</loc>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>https://keleustes.github.io/about/</loc>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://keleustes.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>https://keleustes.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
