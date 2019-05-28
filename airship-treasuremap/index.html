@@ -12,19 +12,19 @@
     <title>TreasureMap :: KELEUSTES&#39;s Blog</title>
 
     
-    <link href="https://keleustes.github.io/css/nucleus.css?1559059140" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/fontawesome-all.min.css?1559059140" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/hybrid.css?1559059140" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/featherlight.min.css?1559059140" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/perfect-scrollbar.min.css?1559059140" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/auto-complete.css?1559059140" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/theme.css?1559059140" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/hugo-theme.css?1559059140" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/nucleus.css?1559060767" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/fontawesome-all.min.css?1559060767" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/hybrid.css?1559060767" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/featherlight.min.css?1559060767" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/perfect-scrollbar.min.css?1559060767" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/auto-complete.css?1559060767" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/theme.css?1559060767" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/hugo-theme.css?1559060767" rel="stylesheet">
     
-      <link href="https://keleustes.github.io/css/theme-keleustes.css?1559059140" rel="stylesheet">
+      <link href="https://keleustes.github.io/css/theme-keleustes.css?1559060767" rel="stylesheet">
     
 
-    <script src="https://keleustes.github.io/js/jquery-2.x.min.js?1559059140"></script>
+    <script src="https://keleustes.github.io/js/jquery-2.x.min.js?1559060767"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="https://keleustes.github.io/js/lunr.min.js?1559059140"></script>
-<script type="text/javascript" src="https://keleustes.github.io/js/auto-complete.js?1559059140"></script>
+<script type="text/javascript" src="https://keleustes.github.io/js/lunr.min.js?1559060767"></script>
+<script type="text/javascript" src="https://keleustes.github.io/js/auto-complete.js?1559060767"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/keleustes.github.io\/";
     
 </script>
-<script type="text/javascript" src="https://keleustes.github.io/js/search.js?1559059140"></script>
+<script type="text/javascript" src="https://keleustes.github.io/js/search.js?1559060767"></script>
 
     
   </div>
@@ -377,15 +377,19 @@ Each kustomization.yaml is using an entry &ldquo;base&rdquo;. Check <a href="htt
 <h3 id="substitutions">Substitutions</h3>
 
 <ul>
-<li>kustomize supports variables by default. Regex is using $(xxx) format.</li>
+<li><p>kustomize supports variables by default</p>
 
-<li><p>some improvment have been proposed to address what kustomize could not do by default: <a href="https://github.com/kubernetes-sigs/kustomize/pull/1111" target="_blank">PR</a></p></li>
+<ul>
+<li>Regex is using $(xxx) format.</li>
+<li>Improvments have been proposed to address what kustomize could not do by default: <a href="https://github.com/kubernetes-sigs/kustomize/pull/1111" target="_blank">PR</a></li>
+</ul></li>
 
 <li><p>simple variable:</p>
 
 <ul>
 <li>Definition in the kustomization.yaml: <a href="https://github.com/keleustes/airship-treasuremap/blob/master/global/kustomization.yaml#L1085" target="_blank">global</a></li>
 <li>Tree and structure can be inlined: <a href="https://github.com/keleustes/airship-treasuremap/blob/master/global/software/charts/ucp/drydock/maas.yaml#L48" target="_blank">inline</a></li>
+<li>Variable value extracted from a catalog CRD: <a href="https://github.com/keleustes/airship-treasuremap/blob/master/site/airsloop/networks/common-addresses.yaml#L12" target="_blank">value</a></li>
 </ul></li>
 
 <li><p>simple inlining:</p>
@@ -393,6 +397,7 @@ Each kustomization.yaml is using an entry &ldquo;base&rdquo;. Check <a href="htt
 <ul>
 <li>Definition in the kustomization.yaml: <a href="https://github.com/keleustes/airship-treasuremap/blob/master/global/kustomization.yaml#L2553" target="_blank">global</a></li>
 <li>Tree and structure can be inlined: <a href="https://github.com/keleustes/airship-treasuremap/blob/master/global/software/charts/osh/openstack-glance/glance.yaml#L20" target="_blank">inline</a></li>
+<li>Variable value extracted from a catalog CRD: <a href="https://github.com/keleustes/airship-treasuremap/blob/master/global/software/config/versions.yaml#L127" target="_blank">value</a></li>
 </ul></li>
 
 <li><p>parent inlining (for multipass replacement) are currently used the following way:</p>
@@ -400,6 +405,7 @@ Each kustomization.yaml is using an entry &ldquo;base&rdquo;. Check <a href="htt
 <ul>
 <li>Definition in the kustomization.yaml: <a href="https://github.com/keleustes/airship-treasuremap/blob/master/global/kustomization.yaml#L2089" target="_blank">global</a></li>
 <li>Tree and structure can be inlined: <a href="https://github.com/keleustes/airship-treasuremap/blob/master/global/software/charts/osh/openstack-glance/glance.yaml#L130" target="_blank">inline</a></li>
+<li>Variable value extracted from a catalog CRD: <a href="https://github.com/keleustes/airship-treasuremap/blob/master/type/sloop/config/endpoints.yaml#L675" target="_blank">value</a></li>
 </ul></li>
 </ul>
 
@@ -652,20 +658,20 @@ Each kustomization.yaml is using an entry &ldquo;base&rdquo;. Check <a href="htt
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://keleustes.github.io/js/clipboard.min.js?1559059140"></script>
-    <script src="https://keleustes.github.io/js/perfect-scrollbar.min.js?1559059140"></script>
-    <script src="https://keleustes.github.io/js/perfect-scrollbar.jquery.min.js?1559059140"></script>
-    <script src="https://keleustes.github.io/js/jquery.sticky.js?1559059140"></script>
-    <script src="https://keleustes.github.io/js/featherlight.min.js?1559059140"></script>
-    <script src="https://keleustes.github.io/js/html5shiv-printshiv.min.js?1559059140"></script>
-    <script src="https://keleustes.github.io/js/highlight.pack.js?1559059140"></script>
+    <script src="https://keleustes.github.io/js/clipboard.min.js?1559060767"></script>
+    <script src="https://keleustes.github.io/js/perfect-scrollbar.min.js?1559060767"></script>
+    <script src="https://keleustes.github.io/js/perfect-scrollbar.jquery.min.js?1559060767"></script>
+    <script src="https://keleustes.github.io/js/jquery.sticky.js?1559060767"></script>
+    <script src="https://keleustes.github.io/js/featherlight.min.js?1559060767"></script>
+    <script src="https://keleustes.github.io/js/html5shiv-printshiv.min.js?1559060767"></script>
+    <script src="https://keleustes.github.io/js/highlight.pack.js?1559060767"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://keleustes.github.io/js/modernizr.custom.71422.js?1559059140"></script>
-    <script src="https://keleustes.github.io/js/learn.js?1559059140"></script>
-    <script src="https://keleustes.github.io/js/hugo-learn.js?1559059140"></script>
+    <script src="https://keleustes.github.io/js/modernizr.custom.71422.js?1559060767"></script>
+    <script src="https://keleustes.github.io/js/learn.js?1559060767"></script>
+    <script src="https://keleustes.github.io/js/hugo-learn.js?1559060767"></script>
 
-    <link href="https://keleustes.github.io/mermaid/mermaid.css?1559059140" type="text/css" rel="stylesheet" />
-    <script src="https://keleustes.github.io/mermaid/mermaid.js?1559059140"></script>
+    <link href="https://keleustes.github.io/mermaid/mermaid.css?1559060767" type="text/css" rel="stylesheet" />
+    <script src="https://keleustes.github.io/mermaid/mermaid.js?1559060767"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
