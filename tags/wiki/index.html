@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.46" />
-    <meta name="description" content="This is keleustes OpenstackService LifeCycle operator POC">
+    <meta name="description" content="KELEUSTES">
 <meta name="author" content="Keleustes Team">
 
     <link rel="shortcut icon" href="https://keleustes.github.io/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="https://keleustes.github.io/images/favicon.png" type="image/x-icon" />
-    <title>LifeCycle Manager :: KELEUSTES&#39;s Blog</title>
+    <title>Wiki :: KELEUSTES&#39;s Blog</title>
 
     
     <link href="https://keleustes.github.io/css/nucleus.css?1559136611" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/oslc-operator/">
+  <body class="" data-url="/tags/wiki/">
     <nav id="sidebar" class="">
 
 
@@ -243,8 +243,8 @@
   
     
     <li data-nav-id="/oslc-operator/" title="LifeCycle Manager" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="https://keleustes.github.io/oslc-operator/">
@@ -457,17 +457,6 @@
               <div>
                 <div id="top-bar">
                 
-                  
-                  
-                  
-                  <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/keleustes/blog/tree/master/content/oslc-operator/_index.en.md" target="blank">
-                      <i class="fas fa-code-branch"></i>
-                      <span id="top-github-link-text">Edit this page</span>
-                    </a>
-                  </div>
-                  
-                
                 
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
@@ -476,242 +465,44 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                     
           
           
-            
-            
-          
-          
-            <a href='https://keleustes.github.io/'>Keleustes</a> > LifeCycle Manager
-          
-         
+            Wiki
           
            
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
                 
               </div>
             </div>
             
 
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>Wiki</h1>
           
 
         
 
 
-<h1 id="openstacklcm">OpenstackLCM</h1>
 
-<h2 id="rationale">Rationale</h2>
-
-<ul>
-<li>Create a Kubernetes Operator able to orchestrate draining traffic, upgrading,
-testing, traffic rollout&hellip;</li>
-<li>The main lesson learned from this POC is the ability to use the helm rendering
-to provide a unified way of delivering scripts onto a platform and at
-runtime selectively decide which part of the chart to render according to the
-state of the service which lifecycle may not match exactly the lifecycle of a
-helm chart (i.e install, upgrade, rollback, delete).</li>
-</ul>
-
-<div class="notices note" ><p>The Argo team published since an new subproject to argoproj called argo-rollout which seems really promising.
-Currently rely on replacing the standard StatefulSet by an Argo Rollout deployement object</p>
-</div>
-
-
-<h2 id="lessons-learned">Lessons Learned</h2>
-
-<h3 id="multi-facet-charts">Multi facet charts</h3>
-
-<ul>
-<li>TBD</li>
-</ul>
-
-<h3 id="traffic-draining">Traffic Draining</h3>
-
-<ul>
-<li>TBD</li>
-</ul>
-
-<h3 id="scaleup-scaledown">ScaleUp / ScaleDown</h3>
-
-<ul>
-<li>TBD</li>
-</ul>
-
-<h2 id="documentation">Documentation</h2>
-
-<ul>
-<li><a href="https://github.com/keleustes/oslc-operator/blob/master/README.md" target="_blank">Readme</a></li>
-<li><a href="https://github.com/argoproj/argo-cd" target="_blank">Argo CD</a></li>
-<li><a href="https://github.com/argoproj/argo-rollouts" target="_blank">Argo Rollout</a></li>
-</ul>
-
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/yeVkTTO9nOA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-
-
-<h2 id="associated-git-repos">Associated GIT Repos</h2>
-
-<ul>
-<li><a href="https://github.com/keleustes/oslc-operator" target="_blank">oslc-operator</a></li>
-</ul>
-
-<p></p>
-
-
-
-
-
-
-
-
-<ul class="children children-h3">
-	
-    
-    
-
-	
-		
-	
-		
-  
-
-
-	
-	
-
-<h3>
-<a href="https://keleustes.github.io/oslc-operator/children/lifecycle/" >LifeCycle</a>
-</h3>
-
-
-
-
-
-
-
-			
-				
-<p>Openstack Service Lifecycle Schema Rationale  Some transitions from one phase/stage to the other are autonomous:  Start to test if install successful) xxx  Some transitions from one phase/stage to the other but be triggered by Ops.  For instance, the traffic will not be drained from a site unless Ops needs to perform operations: xxx  Some of the lifecyle can be applied to one slice/shard of the a service.</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-	
-	
-
-<h3>
-<a href="https://keleustes.github.io/oslc-operator/children/flowcharts/" >FlowCharts</a>
-</h3>
-
-
-
-
-
-
-
-			
-				
-<p>Greenfield Deployment Schema Rationale  Ops Team need to deploy a new service. If the service is unhealty, it gets removed. If the service is healty, it reaches the operational.  Brownfield Change Schema Rationale  Ops Team need to:
- Use Case 1: remove a service. Use Case 2: update a service. Use Case 3: rollback a service.  Once the traffic is drain:
- Use Case 1: the service is removed.</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-	
-	
-
-<h3>
-<a href="https://keleustes.github.io/oslc-operator/children/oslc_crd/" >Oslc CRD</a>
-</h3>
-
-
-
-
-
-
-
-			
-				
-<p>LifeCycle Modelisation Design Oslc CRD The CRD Oslc definition is available here:
- Its Spec which is update through kubectl: Spec Its Status which is updated by the operator and accessible through kubectl describe: Status Its definition made out of the two above components: Definition The yaml version of the CRD: Yaml  Oslc Controller TBD
-SubResources The current PhaseCRD are currently standalone CRDs. This provides control to the phase-controller on those objects.</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-	
-	
-
-<h3>
-<a href="https://keleustes.github.io/oslc-operator/children/phase_crd/" >Phase CRD</a>
-</h3>
-
-
-
-
-
-
-
-			
-				
-<p>Phase Modelisation Design Phase CRD The CRD Phase definition is available here:
- Its Spec which is update through kubectl: Spec Its Status which is updated by the operator and accessible through kubectl describe: Status Its definition made out of the two above components: Definition The yaml version of the CRD: Yaml  Phase Controller The current POC created one CRD per phase. Most of the attributes of those CRDs are common.</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-
-	
-</ul>
 
 <footer class=" footline" >
 	
 </footer>
 
-        
-            </div> 
         
         </div> 
         
@@ -858,7 +649,6 @@ SubResources The current PhaseCRD are currently standalone CRDs. This provides c
             
                 
                     
-                    
                 
                 
 
@@ -866,76 +656,6 @@ SubResources The current PhaseCRD are currently standalone CRDs. This provides c
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
                     
                         
             
@@ -1003,15 +723,80 @@ SubResources The current PhaseCRD are currently standalone CRDs. This provides c
                     
             
         
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
         
         
 
 
         
-            <a class="nav nav-prev" href="https://keleustes.github.io/airship-treasuremap/" title="TreasureMap"> <i class="fas fa-chevron-left"></i></a>
         
-        
-            <a class="nav nav-next" href="https://keleustes.github.io/oslc-operator/children/lifecycle/" title="LifeCycle" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="https://keleustes.github.io/post/" title="Latest News" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 

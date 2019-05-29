@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.46" />
-    <meta name="description" content="This is keleustes OpenstackService LifeCycle operator POC">
+    <meta name="description" content="KELEUSTES">
 <meta name="author" content="Keleustes Team">
 
     <link rel="shortcut icon" href="https://keleustes.github.io/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="https://keleustes.github.io/images/favicon.png" type="image/x-icon" />
-    <title>LifeCycle Manager :: KELEUSTES&#39;s Blog</title>
+    <title>Deployment Flows :: KELEUSTES&#39;s Blog</title>
 
     
     <link href="https://keleustes.github.io/css/nucleus.css?1559136611" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/oslc-operator/">
+  <body class="" data-url="/armada-operator/children/operator/">
     <nav id="sidebar" class="">
 
 
@@ -132,7 +132,7 @@
   
     
     <li data-nav-id="/armada-operator/" title="Armada" class="dd-item 
-        
+        parent
         
         
         ">
@@ -175,7 +175,7 @@
  
   
     
-      <li data-nav-id="/armada-operator/children/operator/" title="Deployment Flows" class="dd-item ">
+      <li data-nav-id="/armada-operator/children/operator/" title="Deployment Flows" class="dd-item active">
         <a href="https://keleustes.github.io/armada-operator/children/operator/">
         Deployment Flows
         
@@ -243,8 +243,8 @@
   
     
     <li data-nav-id="/oslc-operator/" title="LifeCycle Manager" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="https://keleustes.github.io/oslc-operator/">
@@ -461,7 +461,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/keleustes/blog/tree/master/content/oslc-operator/_index.en.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/keleustes/blog/tree/master/content/armada-operator/children/operator.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -476,6 +476,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                     
           
@@ -484,7 +486,13 @@
             
           
           
-            <a href='https://keleustes.github.io/'>Keleustes</a> > LifeCycle Manager
+            
+            
+          
+          
+            <a href='https://keleustes.github.io/'>Keleustes</a> > <a href='https://keleustes.github.io/armada-operator/'>Armada</a> > Deployment Flows
+          
+         
           
          
           
@@ -492,226 +500,132 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#deployment-flows">Deployment Flows</a>
+<ul>
+<li><a href="#crds-in-deckhand">CRDs in Deckhand</a></li>
+<li><a href="#crds-in-etcd">CRDs in ETCD</a></li>
+<li><a href="#crd-process-flows">CRD Process Flows</a>
+<ul>
+<li><a href="#deployment-flow">Deployment Flow</a></li>
+<li><a href="#upgrade-rollback-flow">Upgrade/Rollback Flow</a></li>
+<li><a href="#backup-flow">Backup Flow</a></li>
+<li><a href="#restore-flow">Restore Flow</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
 
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>Deployment Flows</h1>
           
 
         
 
 
-<h1 id="openstacklcm">OpenstackLCM</h1>
-
-<h2 id="rationale">Rationale</h2>
-
-<ul>
-<li>Create a Kubernetes Operator able to orchestrate draining traffic, upgrading,
-testing, traffic rollout&hellip;</li>
-<li>The main lesson learned from this POC is the ability to use the helm rendering
-to provide a unified way of delivering scripts onto a platform and at
-runtime selectively decide which part of the chart to render according to the
-state of the service which lifecycle may not match exactly the lifecycle of a
-helm chart (i.e install, upgrade, rollback, delete).</li>
-</ul>
-
-<div class="notices note" ><p>The Argo team published since an new subproject to argoproj called argo-rollout which seems really promising.
-Currently rely on replacing the standard StatefulSet by an Argo Rollout deployement object</p>
-</div>
 
 
-<h2 id="lessons-learned">Lessons Learned</h2>
+<h2 id="deployment-flows">Deployment Flows</h2>
 
-<h3 id="multi-facet-charts">Multi facet charts</h3>
+<h3 id="crds-in-deckhand">CRDs in Deckhand</h3>
+
+<p>In the Airship used for production deployment, the SiteManifest could be viewed as a composition of Custom Resources:</p>
 
 <ul>
-<li>TBD</li>
+<li>&ldquo;Drydock&rdquo; CR describing the kubernetes nodes, network, kublet.</li>
+<li>&ldquo;ArmadaChart&rdquo; CR describing the location of the helm chart and the helm chart value override.</li>
 </ul>
 
-<h3 id="traffic-draining">Traffic Draining</h3>
+<p>Shipyard, Drydock and Armada are orchestrating the order of deployment:</p>
+
+<ol>
+<li>BareMetal OS, Network</li>
+<li>Docker, Kubelet, Kubernetes</li>
+<li>Storage, CEPH</li>
+<li>Applications for instance MariaDB</li>
+</ol>
+
+<p>In the subsequent drawings, <code>red arrows</code> represent APIs and CLI calls (arship or kubernetes calls),
+<code>blue arrows</code> represents <code>events</code> generated by K8s.</p>
+
+<p><img src="https://keleustes.github.io/images/armada/armada_withdeckhand.png" alt="" /></p>
+
+<h3 id="crds-in-etcd">CRDs in ETCD</h3>
+
+<p>This view here describe how ETCD could potentially fullfill the role of Deckhand assuming that:</p>
 
 <ul>
-<li>TBD</li>
+<li>&ldquo;History&rdquo; of the CRDs is ensured. A rollback to a previous version should be possible.</li>
+<li>&ldquo;Sequencement&rdquo; of the deployment is ensured. Helm Chart for CEPH needs to run before Helm Chart for MariaDB</li>
 </ul>
 
-<h3 id="scaleup-scaledown">ScaleUp / ScaleDown</h3>
+<p><img src="https://keleustes.github.io/images/armada/armada_nodeckhand.png" alt="" /></p>
 
-<ul>
-<li>TBD</li>
-</ul>
+<h3 id="crd-process-flows">CRD Process Flows</h3>
 
-<h2 id="documentation">Documentation</h2>
+<h4 id="deployment-flow">Deployment Flow</h4>
 
-<ul>
-<li><a href="https://github.com/keleustes/oslc-operator/blob/master/README.md" target="_blank">Readme</a></li>
-<li><a href="https://github.com/argoproj/argo-cd" target="_blank">Argo CD</a></li>
-<li><a href="https://github.com/argoproj/argo-rollouts" target="_blank">Argo Rollout</a></li>
-</ul>
+<p>The main principal is:</p>
 
+<ol>
+<li>Create all the charts in ETCD and &ldquo;disable&rdquo; the reconcile feature</li>
+<li>Changing the admin_state to enable triggers the Reconciliation/Installation of the HelmChart</li>
+<li>Either a ChartGroup or an Argo workflow enables the ArmadaCharts in the proper order.</li>
+</ol>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/yeVkTTO9nOA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+<p><img src="https://keleustes.github.io/images/armada/armada_deploy.png" alt="" /></p>
 
+<h4 id="upgrade-rollback-flow">Upgrade/Rollback Flow</h4>
 
-<h2 id="associated-git-repos">Associated GIT Repos</h2>
+<ol>
+<li>Changing the targetVersion in the ArmadaChart triggers the Upgrade/Rollback of the HelmChart</li>
+<li>Either a ChartGroup or an Argo workflow update the targetVersion attribute of the ArmadaCharts in the proper order.</li>
+<li>the &ldquo;targetVersion&rdquo; attribute usage will potentially completly remove the need for the enabled/disabled state. Moving the &ldquo;targetVersion&rdquo; from 0 to 1 would indeed have the same effect than changing the admin state from disabled to enabled.</li>
+</ol>
 
-<ul>
-<li><a href="https://github.com/keleustes/oslc-operator" target="_blank">oslc-operator</a></li>
-</ul>
+<p><img src="https://keleustes.github.io/images/armada/armada_upgrade.png" alt="" /></p>
 
-<p></p>
+<h4 id="backup-flow">Backup Flow</h4>
 
+<ol>
+<li>Create an ArmadaBackupLocation CRD</li>
+<li>Pointing the backupLocation in the ArmadaChart to the previous CRD triggers the backup of the stateful data associated with the HelmChart</li>
+<li>Either a ChartGroup or an Argo workflow update the backupLocation attribute of the ArmadaCharts in the proper order.</li>
+</ol>
 
+<p><img src="https://keleustes.github.io/images/armada/armada_backup.png" alt="" /></p>
 
+<h4 id="restore-flow">Restore Flow</h4>
 
+<ol>
+<li>Create an ArmadaBackupLocation CRD</li>
+<li>Pointing the restoreLocation in the ArmadaChart to the previous CRD triggers the restore of the stateful data associated with the HelmChart</li>
+<li>Either a ChartGroup or an Argo workflow update the restoreLocation attribute of the ArmadaCharts in the proper order.</li>
+</ol>
 
+<p><img src="https://keleustes.github.io/images/armada/armada_restore.png" alt="" /></p>
 
-
-
-<ul class="children children-h3">
-	
-    
-    
-
-	
-		
-	
-		
-  
-
-
-	
-	
-
-<h3>
-<a href="https://keleustes.github.io/oslc-operator/children/lifecycle/" >LifeCycle</a>
-</h3>
-
-
-
-
-
-
-
-			
-				
-<p>Openstack Service Lifecycle Schema Rationale  Some transitions from one phase/stage to the other are autonomous:  Start to test if install successful) xxx  Some transitions from one phase/stage to the other but be triggered by Ops.  For instance, the traffic will not be drained from a site unless Ops needs to perform operations: xxx  Some of the lifecyle can be applied to one slice/shard of the a service.</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-	
-	
-
-<h3>
-<a href="https://keleustes.github.io/oslc-operator/children/flowcharts/" >FlowCharts</a>
-</h3>
-
-
-
-
-
-
-
-			
-				
-<p>Greenfield Deployment Schema Rationale  Ops Team need to deploy a new service. If the service is unhealty, it gets removed. If the service is healty, it reaches the operational.  Brownfield Change Schema Rationale  Ops Team need to:
- Use Case 1: remove a service. Use Case 2: update a service. Use Case 3: rollback a service.  Once the traffic is drain:
- Use Case 1: the service is removed.</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-	
-	
-
-<h3>
-<a href="https://keleustes.github.io/oslc-operator/children/oslc_crd/" >Oslc CRD</a>
-</h3>
-
-
-
-
-
-
-
-			
-				
-<p>LifeCycle Modelisation Design Oslc CRD The CRD Oslc definition is available here:
- Its Spec which is update through kubectl: Spec Its Status which is updated by the operator and accessible through kubectl describe: Status Its definition made out of the two above components: Definition The yaml version of the CRD: Yaml  Oslc Controller TBD
-SubResources The current PhaseCRD are currently standalone CRDs. This provides control to the phase-controller on those objects.</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-	
-	
-
-<h3>
-<a href="https://keleustes.github.io/oslc-operator/children/phase_crd/" >Phase CRD</a>
-</h3>
-
-
-
-
-
-
-
-			
-				
-<p>Phase Modelisation Design Phase CRD The CRD Phase definition is available here:
- Its Spec which is update through kubectl: Spec Its Status which is updated by the operator and accessible through kubectl describe: Status Its definition made out of the two above components: Definition The yaml version of the CRD: Yaml  Phase Controller The current POC created one CRD per phase. Most of the attributes of those CRDs are common.</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-
-	
-</ul>
 
 <footer class=" footline" >
 	
 </footer>
 
-        
-            </div> 
+
         
         </div> 
         
@@ -778,86 +692,6 @@ SubResources The current PhaseCRD are currently standalone CRDs. This provides c
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -891,6 +725,7 @@ SubResources The current PhaseCRD are currently standalone CRDs. This provides c
             
                 
                     
+                    
                 
                 
 
@@ -898,6 +733,28 @@ SubResources The current PhaseCRD are currently standalone CRDs. This provides c
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -930,12 +787,6 @@ SubResources The current PhaseCRD are currently standalone CRDs. This provides c
                     
                     
 
-                    
-            
-        
-                    
-            
-        
                     
                         
             
@@ -1003,15 +854,82 @@ SubResources The current PhaseCRD are currently standalone CRDs. This provides c
                     
             
         
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
         
         
 
 
         
-            <a class="nav nav-prev" href="https://keleustes.github.io/airship-treasuremap/" title="TreasureMap"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="https://keleustes.github.io/armada-operator/children/crds/" title="CRDs"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="https://keleustes.github.io/oslc-operator/children/lifecycle/" title="LifeCycle" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="https://keleustes.github.io/armada-operator/children/todo/" title="Ideas" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 
@@ -1050,3 +968,4 @@ SubResources The current PhaseCRD are currently standalone CRDs. This provides c
 
   </body>
 </html>
+

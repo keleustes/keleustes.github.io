@@ -6,9 +6,51 @@
     <description>Recent content in LifeCycle Manager on KELEUSTES&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 15 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://keleustes.github.io/oslc-operator/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LifeCycle</title>
+      <link>https://keleustes.github.io/oslc-operator/children/lifecycle/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keleustes.github.io/oslc-operator/children/lifecycle/</guid>
+      <description>Openstack Service Lifecycle Schema Rationale  Some transitions from one phase/stage to the other are autonomous:  Start to test if install successful) xxx  Some transitions from one phase/stage to the other but be triggered by Ops.  For instance, the traffic will not be drained from a site unless Ops needs to perform operations: xxx  Some of the lifecyle can be applied to one slice/shard of the a service.</description>
+    </item>
+    
+    <item>
+      <title>FlowCharts</title>
+      <link>https://keleustes.github.io/oslc-operator/children/flowcharts/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keleustes.github.io/oslc-operator/children/flowcharts/</guid>
+      <description>Greenfield Deployment Schema Rationale  Ops Team need to deploy a new service. If the service is unhealty, it gets removed. If the service is healty, it reaches the operational.  Brownfield Change Schema Rationale  Ops Team need to:
+ Use Case 1: remove a service. Use Case 2: update a service. Use Case 3: rollback a service.  Once the traffic is drain:
+ Use Case 1: the service is removed.</description>
+    </item>
+    
+    <item>
+      <title>Oslc CRD</title>
+      <link>https://keleustes.github.io/oslc-operator/children/oslc_crd/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keleustes.github.io/oslc-operator/children/oslc_crd/</guid>
+      <description>LifeCycle Modelisation Design Oslc CRD The CRD Oslc definition is available here:
+ Its Spec which is update through kubectl: Spec Its Status which is updated by the operator and accessible through kubectl describe: Status Its definition made out of the two above components: Definition The yaml version of the CRD: Yaml  Oslc Controller TBD
+SubResources The current PhaseCRD are currently standalone CRDs. This provides control to the phase-controller on those objects.</description>
+    </item>
+    
+    <item>
+      <title>Phase CRD</title>
+      <link>https://keleustes.github.io/oslc-operator/children/phase_crd/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keleustes.github.io/oslc-operator/children/phase_crd/</guid>
+      <description>Phase Modelisation Design Phase CRD The CRD Phase definition is available here:
+ Its Spec which is update through kubectl: Spec Its Status which is updated by the operator and accessible through kubectl describe: Status Its definition made out of the two above components: Definition The yaml version of the CRD: Yaml  Phase Controller The current POC created one CRD per phase. Most of the attributes of those CRDs are common.</description>
+    </item>
     
   </channel>
 </rss>

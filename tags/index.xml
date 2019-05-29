@@ -10,5 +10,14 @@
 	<atom:link href="https://keleustes.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Wiki</title>
+      <link>https://keleustes.github.io/tags/wiki/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keleustes.github.io/tags/wiki/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

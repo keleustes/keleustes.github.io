@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Keleustes on KELEUSTES&#39;s Blog</title>
-    <link>https://keleustes.github.io/</link>
-    <description>Recent content in Keleustes on KELEUSTES&#39;s Blog</description>
+    <title>Wiki on KELEUSTES&#39;s Blog</title>
+    <link>https://keleustes.github.io/categories/wiki/</link>
+    <description>Recent content in Wiki on KELEUSTES&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 May 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://keleustes.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://keleustes.github.io/categories/wiki/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,15 +20,6 @@
       <description>CRDs ArmadaChart CRD The ArmadaChart defintion used in production is available here: Production
 The CRD ArmadaChart definition is available here:
  Its Spec which is update through kubectl: Spec Its Status which is updated by the operator and accessible through kubectl describe: Status Its definition made out of the two above components: Definition The yaml version of the CRD: Yaml  ArmadaChartGroup CRD The ArmadaChartGroup defintion used in production is available here: Production</description>
-    </item>
-    
-    <item>
-      <title>LifeCycle</title>
-      <link>https://keleustes.github.io/oslc-operator/children/lifecycle/</link>
-      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://keleustes.github.io/oslc-operator/children/lifecycle/</guid>
-      <description>Openstack Service Lifecycle Schema Rationale  Some transitions from one phase/stage to the other are autonomous:  Start to test if install successful) xxx  Some transitions from one phase/stage to the other but be triggered by Ops.  For instance, the traffic will not be drained from a site unless Ops needs to perform operations: xxx  Some of the lifecyle can be applied to one slice/shard of the a service.</description>
     </item>
     
     <item>
@@ -60,6 +51,15 @@ The CRD ArmadaChart definition is available here:
       
       <guid>https://keleustes.github.io/armada-operator/children/todo/</guid>
       <description>Ideas  Can we use the &amp;ldquo;finalizer&amp;rdquo; to implement the &amp;ldquo;protected&amp;rdquo; feature of ArmadaChart. We need a consistent handling of Conditions, Events and Status and behavior which are easily understood by people understanding K8s. &amp;ldquo;kubectl get act&amp;rdquo; should be able to return a synthetic view as good as the &amp;ldquo;kubectl get pod&amp;rdquo; does. The Status object should be accurate enough for the DAG in the Argo Workflow to stay simple.</description>
+    </item>
+    
+    <item>
+      <title>LifeCycle</title>
+      <link>https://keleustes.github.io/oslc-operator/children/lifecycle/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://keleustes.github.io/oslc-operator/children/lifecycle/</guid>
+      <description>Openstack Service Lifecycle Schema Rationale  Some transitions from one phase/stage to the other are autonomous:  Start to test if install successful) xxx  Some transitions from one phase/stage to the other but be triggered by Ops.  For instance, the traffic will not be drained from a site unless Ops needs to perform operations: xxx  Some of the lifecyle can be applied to one slice/shard of the a service.</description>
     </item>
     
     <item>
