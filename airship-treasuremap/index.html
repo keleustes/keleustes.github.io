@@ -12,19 +12,19 @@
     <title>TreasureMap :: KELEUSTES&#39;s Blog</title>
 
     
-    <link href="https://keleustes.github.io/css/nucleus.css?1562042456" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/fontawesome-all.min.css?1562042456" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/hybrid.css?1562042456" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/featherlight.min.css?1562042456" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/perfect-scrollbar.min.css?1562042456" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/auto-complete.css?1562042456" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/theme.css?1562042456" rel="stylesheet">
-    <link href="https://keleustes.github.io/css/hugo-theme.css?1562042456" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/nucleus.css?1562042632" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/fontawesome-all.min.css?1562042632" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/hybrid.css?1562042632" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/featherlight.min.css?1562042632" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/perfect-scrollbar.min.css?1562042632" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/auto-complete.css?1562042632" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/theme.css?1562042632" rel="stylesheet">
+    <link href="https://keleustes.github.io/css/hugo-theme.css?1562042632" rel="stylesheet">
     
-      <link href="https://keleustes.github.io/css/theme-keleustes.css?1562042456" rel="stylesheet">
+      <link href="https://keleustes.github.io/css/theme-keleustes.css?1562042632" rel="stylesheet">
     
 
-    <script src="https://keleustes.github.io/js/jquery-2.x.min.js?1562042456"></script>
+    <script src="https://keleustes.github.io/js/jquery-2.x.min.js?1562042632"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="https://keleustes.github.io/js/lunr.min.js?1562042456"></script>
-<script type="text/javascript" src="https://keleustes.github.io/js/auto-complete.js?1562042456"></script>
+<script type="text/javascript" src="https://keleustes.github.io/js/lunr.min.js?1562042632"></script>
+<script type="text/javascript" src="https://keleustes.github.io/js/auto-complete.js?1562042632"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/keleustes.github.io\/";
     
 </script>
-<script type="text/javascript" src="https://keleustes.github.io/js/search.js?1562042456"></script>
+<script type="text/javascript" src="https://keleustes.github.io/js/search.js?1562042632"></script>
 
     
   </div>
@@ -593,7 +593,7 @@ Each kustomization.yaml is using an entry &ldquo;base&rdquo;. Check <a href="htt
 <h3 id="build">Build</h3>
 
 <p>Check that your configuration is correct. Invokes kustomize build and compare the output with
-a previously generated output.</p>
+a previously generated output. Be sure to have build the <code>allinone</code> version of kustomize.</p>
 
 <pre><code class="language-bash">make rendering-test-airsloop
 </code></pre>
@@ -603,6 +603,13 @@ a previously generated output.</p>
 <pre><code class="language-bash">make deploy-airsloop
 kubectl get all act --all-namespaces
 </code></pre>
+
+<h3 id="branches">Branches</h3>
+
+<ul>
+<li><code>master</code> site manifests which require the inline function but autovar feature is not used.</li>
+<li><code>autovar</code> autovar feature of kustomize is enabled, hence no need for 3000 lines of vars and varreferences:</li>
+</ul>
 
 <p></p>
 
@@ -939,20 +946,20 @@ kubectl get all act --all-namespaces
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://keleustes.github.io/js/clipboard.min.js?1562042456"></script>
-    <script src="https://keleustes.github.io/js/perfect-scrollbar.min.js?1562042456"></script>
-    <script src="https://keleustes.github.io/js/perfect-scrollbar.jquery.min.js?1562042456"></script>
-    <script src="https://keleustes.github.io/js/jquery.sticky.js?1562042456"></script>
-    <script src="https://keleustes.github.io/js/featherlight.min.js?1562042456"></script>
-    <script src="https://keleustes.github.io/js/html5shiv-printshiv.min.js?1562042456"></script>
-    <script src="https://keleustes.github.io/js/highlight.pack.js?1562042456"></script>
+    <script src="https://keleustes.github.io/js/clipboard.min.js?1562042632"></script>
+    <script src="https://keleustes.github.io/js/perfect-scrollbar.min.js?1562042632"></script>
+    <script src="https://keleustes.github.io/js/perfect-scrollbar.jquery.min.js?1562042632"></script>
+    <script src="https://keleustes.github.io/js/jquery.sticky.js?1562042632"></script>
+    <script src="https://keleustes.github.io/js/featherlight.min.js?1562042632"></script>
+    <script src="https://keleustes.github.io/js/html5shiv-printshiv.min.js?1562042632"></script>
+    <script src="https://keleustes.github.io/js/highlight.pack.js?1562042632"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://keleustes.github.io/js/modernizr.custom.71422.js?1562042456"></script>
-    <script src="https://keleustes.github.io/js/learn.js?1562042456"></script>
-    <script src="https://keleustes.github.io/js/hugo-learn.js?1562042456"></script>
+    <script src="https://keleustes.github.io/js/modernizr.custom.71422.js?1562042632"></script>
+    <script src="https://keleustes.github.io/js/learn.js?1562042632"></script>
+    <script src="https://keleustes.github.io/js/hugo-learn.js?1562042632"></script>
 
-    <link href="https://keleustes.github.io/mermaid/mermaid.css?1562042456" type="text/css" rel="stylesheet" />
-    <script src="https://keleustes.github.io/mermaid/mermaid.js?1562042456"></script>
+    <link href="https://keleustes.github.io/mermaid/mermaid.css?1562042632" type="text/css" rel="stylesheet" />
+    <script src="https://keleustes.github.io/mermaid/mermaid.js?1562042632"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
